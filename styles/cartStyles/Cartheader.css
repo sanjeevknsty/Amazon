@@ -1,0 +1,45 @@
+body{
+  margin: 0;
+  font-family: Arial;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 40px;
+}
+.css-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  height: 60px; 
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  padding-left: 100px;
+  padding-right: 100px;
+  z-index: 1000;
+}
+.left-section{
+  display: flex;
+  align-items: center;
+  
+}
+.amazon-logo{
+  height: 30px;
+
+}
+.middle-section{
+flex: 1;
+display: flex;
+align-items: center;
+
+justify-content: center;
+}
+.css-checkout{
+
+font-size: 20px;
+font-weight: 700;
+
+}

@@ -1,0 +1,154 @@
+.css-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  padding: 10px; 
+  height: 40px;
+}
+
+.css-left-section{
+     
+   display: block;
+  width: 180px;  
+}
+.css-header-left{
+  display: inline-block;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-decoration: none;
+}
+.css-header-left:hover{
+  border: 1px solid white;
+}
+
+
+.css-amazon-logo{
+  
+  width: 120px;
+  height: 30px;
+  
+}
+@media(min-width:401px){
+  .css-amazon-mobile-logo{
+    display: none;
+  }
+}
+.css-amazon-mobile-logo{
+  height: 30px;
+  width: 30px;
+}
+  @media(max-width:600px){
+    .css-amazon-logo{
+      display: none;
+    }
+    .css-amazon-mobile-logo{
+      display: block;
+    }
+    .css-left-section{
+      width: unset;
+      margin-right: 7px;
+    }
+  }
+ 
+.css-middle-section{
+  
+  flex: 1;
+  max-width: 850px;
+  
+  display: flex;
+  margin-left: 50px;
+}
+
+@media (max-width:800px){
+  .css-middle-section{
+    margin-left: 0;
+  }
+  
+}
+.css-search{
+  flex: 1;
+  width: 0;
+  height: 40px;
+  padding-left: 20px;
+  font-size: 20px;
+  border: 1px solid rgb(227, 225, 225);
+  box-shadow: inset 1px 2px 3px rgba(12, 5, 5,0.05);
+  border-radius: 4px;
+  
+}
+.css-search-button{
+  border:none;
+  background-color: orange;
+  height: 43px;
+  padding: 6px;
+  margin-left: -3px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px ;
+}
+.css-search-logo{
+   height: 20px;
+   width: 24px;
+}
+.css-right-section{
+   
+   width: 220px;
+   margin-right:10px;
+   display: flex;
+   justify-content: end;
+   flex-shrink: 0;
+}
+
+.css-return-orders{
+  display: inline-block;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid black;
+  text-decoration: none;
+  color: white;
+}
+.css-return-orders:hover,
+.css-cart:hover {
+  border: 1px solid white;
+ 
+}
+.css-return{
+ display: block;
+ font-size: 13px;
+}
+.css-orders{
+   display: block;
+   font-size: 15px;
+   font-weight: 700;
+}
+.css-cart{
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  padding: 5px;
+}
+.css-cart-logo{
+   width: 45px;
+}
+.css-cart-quantity{
+  position: absolute;
+  font-size: 20px;
+   top: 2px;
+   right: 45px;
+   color:orange;
+   font-weight: 700;
+   text-align: center;
+}
+.css-cart-text{
+  color :white;
+  margin-top: 22px;
+  font-size: 14px;
+  font-weight: 700;
+}

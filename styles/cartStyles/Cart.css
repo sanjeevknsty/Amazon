@@ -1,0 +1,49 @@
+.order-grid{
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  column-gap: 30px;
+  align-items: start;
+} 
+ 
+.order-review{
+    font-weight: 700;
+}
+.css-payment-info{
+  border: 1px;
+  border-color: black;
+  border-style: solid;
+  padding: 20px;
+}
+
+.payment-summary{
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.payment-summary-row{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  margin-bottom: 12px;
+}
+.total-row{
+  color: rgb(190, 29, 29);
+  font-weight: 700;
+  font-size: 20px;
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
+.paypal-info{
+  font-size:20px;
+  margin-bottom: 17px;
+}
+.order-button{
+  width: 100%;
+  background-color: rgb(246, 210, 32);
+  border:none;
+  padding :10px;
+  border-radius: 30px;
+ font-size: 17px;
+ cursor: pointer;
+}
+.order-button:hover{
+  background-color:rgb(172, 152, 50) ;
+}
