@@ -17,7 +17,7 @@ export const products =[
        stars: 4.5,
        count:232,
     },
-    priceCents:1000,
+    priceCents:3000,
   },
   {
     id   : "e43638ce-6aa0-4b85-b27f-e1d07eb678c7",
@@ -27,7 +27,7 @@ export const products =[
        stars: 4.5,
        count:232,
     },
-    priceCents:1000,
+    priceCents:5000,
   },
   {
     id   : "e43638ce-6aa0-4b85-b27f-e1d07eb678c4",
@@ -37,7 +37,7 @@ export const products =[
        stars: 4.5,
        count:232,
     },
-    priceCents:1000,
+    priceCents:8000,
   },
   
 ]

@@ -1,5 +1,6 @@
 import {cart,addToCart} from '../data/cart.js';
 import { products} from '../data/products.js';
+import { formatCurrancy } from './utilis/price.js';
 
 
  let productHTML='';
@@ -16,7 +17,7 @@ import { products} from '../data/products.js';
     
   </div>
   <div class="css-product-price">
-    <p><b>$${(product.priceCents/100).toFixed(2)}</b> </p>
+    <p><b>$${formatCurrancy(product.priceCents)}</b> </p>
   </div>
   <div class="product-quantity"> 
     <select class="css-select js-select">
