@@ -1,4 +1,4 @@
-import {cart} from '../data/cart.js';
+import {cart,removeItem} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrancy } from './utilis/price.js';
 
@@ -18,7 +18,7 @@ let cartSummaryHTML;
 
  
 
-  cartSummaryHTML +=`<div class="checkout-details">
+  cartSummaryHTML +=`<div class="checkout-details js-checkout-details-${matchingItem.id}">
 <div class="checkout-details-tittle">Delivery Date : Sunday,July 16</div>
   <div class="details-grid">
     <div> 
@@ -70,3 +70,17 @@ let cartSummaryHTML;
 
 document.querySelector('.js-cart-summary')
 .innerHTML=cartSummaryHTML
+
+document.querySelectorAll('.js-delete-link')
+.forEach((link)=>{
+    link.addEventListener('click',()=>{
+      const productId=link.dataset.productId
+      removeItem(productId)
+      const container = document.querySelector(
+        `.js-checkout-details-${productId}`
+        ) 
+        container.remove();
+    })
+   
+   
+})
