@@ -3,18 +3,19 @@ import {products} from '../data/products.js';
 import { formatCurrancy } from './utilis/price.js';
 
 let cartSummaryHTML;
-
+let paymentSummaryHTML;
+let sum =0;
  cart.forEach( (cartItem)=>{
   
-  const productId =cartItem.productId;
-  let matchingItem;
+    const productId =cartItem.productId;
+    let matchingItem;
 
-  products.forEach((product) => {
-     if(product.id === productId){
-      matchingItem = product
-     }
-    
-  });
+      products.forEach((product) => {
+        if(productId  ===  product.id){
+          matchingItem = product
+        }
+        
+      })
 
 
 
@@ -66,10 +67,75 @@ let cartSummaryHTML;
                             </div>
                           </div>
                         </div>`
+        
+      sum =sum + Number(`${cartItem.quantity * formatCurrancy(matchingItem.priceCents)}`)
+       
 })
 
 document.querySelector('.js-cart-summary')
 .innerHTML=cartSummaryHTML
+
+console.log(sum)
+
+function shipingSummary(sum){
+  let  shiping;
+  if(sum <= 50){
+    shiping = 10
+  }
+  else{
+    shiping =0
+  }
+  return shiping
+}
+
+let items,shipping,beforeTax,tax,orderTotal
+
+    items = sum,
+    shipping = shipingSummary(sum),
+    beforeTax = shipping + items,
+    tax = beforeTax /10,
+    orderTotal = tax +beforeTax
+
+
+
+
+
+paymentSummaryHTML =`<div class="payment-summary">Order Summary</div>
+                    <div class="payment-summary-row">
+                      <div> Items :</div>
+                      <div class="payment-summary-money">$${items}</div>
+                    </div>
+                    <div class="payment-summary-row">
+                      <div> Shipping & handling :</div>
+                      <div class="payment-summary-money">$${shipping}</div>
+
+                    </div>
+
+                    <div class="payment-summary-row">
+                      <div> Total before Tax:</div>
+                      <div class="payment-summary-money">$${beforeTax}</div>+
+                    </div>
+                    <div class="payment-summary-row">
+                      <div> Estimated Tax(10%) :</div>
+                      <div class="payment-summary-money">$${tax}</div>
+                    </div>
+                    <div class="payment-summary-row total-row">
+                      <div>  Order-Total</div>
+                      <div class="payment-summary-money">$${orderTotal}</div>
+                    </div>
+                    <div class="paypal-info">
+                      Use Paypal
+                      <input type="checkbox" >
+                    </div>
+                    <div>
+                      <button class="order-button">Place your Order</button>
+                    </div>`
+document.querySelector('.js-payment-info')
+.innerHTML=paymentSummaryHTML
+
+
+
+
 
 document.querySelectorAll('.js-delete-link')
 .forEach((link)=>{
