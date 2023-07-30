@@ -133,6 +133,7 @@
   align-items: center;
   border: 1px solid black;
   padding: 5px;
+  cursor: pointer;
 }
 .css-cart-logo{
    width: 45px;
