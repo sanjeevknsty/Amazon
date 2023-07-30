@@ -52,6 +52,7 @@ import { formatCurrancy } from './utilis/price.js';
     updateCartQuantity()
     })
   })
+  updateCartQuantity();
 
   function updateCartQuantity(){ 
       let cartQuantiy=0;
