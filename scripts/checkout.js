@@ -90,12 +90,21 @@ function shipingSummary(sum){
 
 let items,shipping,beforeTax,tax,orderTotal
 
+   
+    if (sum >0 ){
     items = sum,
     shipping = shipingSummary(sum),
     beforeTax = shipping + items,
     tax = beforeTax /10,
     orderTotal = tax +beforeTax
-
+    }
+    else{
+    items = 0,
+    shipping = 0,
+    beforeTax = 0,
+    tax = 0,
+    orderTotal = 0
+    }
 
 
 
@@ -146,6 +155,7 @@ document.querySelectorAll('.js-delete-link')
         `.js-checkout-details-${productId}`
         ) 
         container.remove();
+
     })
    
    
