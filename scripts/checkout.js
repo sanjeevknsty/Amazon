@@ -2,9 +2,11 @@ import {cart,removeItem} from '../data/cart.js';
 import {products} from '../data/products.js';
 import { formatCurrancy } from './utilis/price.js';
 
+
 let cartSummaryHTML;
 let paymentSummaryHTML;
 let sum =0;
+
  cart.forEach( (cartItem)=>{
   
     const productId =cartItem.productId;
@@ -72,8 +74,9 @@ let sum =0;
        
 })
 
-document.querySelector('.js-cart-summary')
-.innerHTML=cartSummaryHTML
+
+document.querySelector('.js-cart-summary').innerHTML=cartSummaryHTML
+
 
 console.log(sum)
 
@@ -137,13 +140,10 @@ paymentSummaryHTML =`<div class="payment-summary">Order Summary</div>
                       <input type="checkbox" >
                     </div>
                     <a href="Orders.html">
-                      <button class="order-button js-order-button">Place your Order</button>
+                      <button class="order-button js-order-button" >Place your Order</button>
                     </a>`
 document.querySelector('.js-payment-info')
 .innerHTML=paymentSummaryHTML
-
-
-
 
 
 document.querySelectorAll('.js-delete-link')
@@ -159,13 +159,16 @@ document.querySelectorAll('.js-delete-link')
     })
    
 })
+export let newOrder =[]
 
+const placeOrder = document.querySelector('.js-order-button')
+placeOrder.addEventListener('click',cart.forEach((cartItem)=>{
+  newOrder.push(cartItem)
 
-const placeOrder=document.querySelector('.js-order-button')
-      placeOrder.addEventListener('click',()=>{
-        document.querySelector('.js-item-grid')
-        .innerHTML=Summary
-      })
+}))
+    
+
+    
    
  
-      console.log(placeOrder)
+      console.log(newOrder)

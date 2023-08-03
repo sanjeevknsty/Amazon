@@ -1,5 +1,5 @@
 
-import { cartPrice } from "../scripts/checkout,js";
+
  
  export let cart = JSON.parse(localStorage.getItem('cart'))
  
@@ -46,12 +46,12 @@ import { cartPrice } from "../scripts/checkout,js";
 export function removeItem(productId){
   const newCart =[]
   cart.forEach((cartItem)=>{
-    if(productId !== cartItem.productId){
+    if(cartItem.productId !== productId ){
       newCart.push(cartItem) 
      }
-  })
+  });
   cart = newCart;
-  cartPrice()
-  saveToStorage()
+  
+  saveToStorage() 
 }
 
