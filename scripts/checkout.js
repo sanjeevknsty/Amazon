@@ -88,9 +88,9 @@ function shipingSummary(sum){
   return shiping
 }
 
-let items,shipping,beforeTax,tax,orderTotal
-
-   
+let items,shipping,beforeTax,tax;
+let orderTotal
+ 
     if (sum >0 ){
     items = sum,
     shipping = shipingSummary(sum),
@@ -106,7 +106,7 @@ let items,shipping,beforeTax,tax,orderTotal
     orderTotal = 0
     }
 
-
+  
 
 
 paymentSummaryHTML =`<div class="payment-summary">Order Summary</div>
@@ -136,9 +136,9 @@ paymentSummaryHTML =`<div class="payment-summary">Order Summary</div>
                       Use Paypal
                       <input type="checkbox" >
                     </div>
-                    <div>
-                      <button class="order-button">Place your Order</button>
-                    </div>`
+                    <a href="Orders.html">
+                      <button class="order-button js-order-button">Place your Order</button>
+                    </a>`
 document.querySelector('.js-payment-info')
 .innerHTML=paymentSummaryHTML
 
@@ -158,5 +158,14 @@ document.querySelectorAll('.js-delete-link')
 
     })
    
-   
 })
+
+
+const placeOrder=document.querySelector('.js-order-button')
+      placeOrder.addEventListener('click',()=>{
+        document.querySelector('.js-item-grid')
+        .innerHTML=Summary
+      })
+   
+ 
+      console.log(placeOrder)

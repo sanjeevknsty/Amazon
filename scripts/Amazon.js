@@ -54,7 +54,7 @@ import { formatCurrancy } from './utilis/price.js';
   })
   updateCartQuantity();
 
-  function updateCartQuantity(){ 
+ function updateCartQuantity(){ 
       let cartQuantiy=0;
       cart.forEach((cartItem)=>[
         cartQuantiy += cartItem.quantity
