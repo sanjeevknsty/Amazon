@@ -20,7 +20,6 @@ let sum =0;
       })
 
 
-
   cartSummaryHTML +=`<div class="checkout-details js-checkout-details-${matchingItem.id}">
                         <div class="checkout-details-tittle">Delivery Date : Sunday,July 16</div>
                           <div class="details-grid">
@@ -77,7 +76,19 @@ let sum =0;
 
 document.querySelector('.js-cart-summary').innerHTML=cartSummaryHTML
 
-
+document.querySelectorAll('.js-delete-link')
+.forEach((link)=>{
+    link.addEventListener('click',()=>{
+      const productId=link.dataset.productId
+      removeItem(productId);
+      const container = document.querySelector(
+        `.js-checkout-details-${productId}`
+        ) 
+        container.remove();
+   console.log(container)
+    })
+   
+})
 console.log(sum)
 
 function shipingSummary(sum){
@@ -90,10 +101,11 @@ function shipingSummary(sum){
   }
   return shiping
 }
-
 let items,shipping,beforeTax,tax;
 let orderTotal
- 
+
+ export function updatePrice(){
+  
     if (sum >0 ){
     items = sum,
     shipping = shipingSummary(sum),
@@ -108,14 +120,25 @@ let orderTotal
     tax = 0,
     orderTotal = 0
     }
-
+    
   
+  const ray =[{
+    items : items,
+    shipping : shipping,
+    beforeTax : beforeTax,
+    tax : tax,
+    orderTotal : orderTotal
+  }]
 
+  return ray
+ }
+
+ console.log(updatePrice())
+updatePrice()
 
 paymentSummaryHTML =`<div class="payment-summary">Order Summary</div>
                     <div class="payment-summary-row">
                       <div> Items :</div>
-                      <div class="payment-summary-money">$${items}</div>
                     </div>
                     <div class="payment-summary-row">
                       <div> Shipping & handling :</div>
@@ -146,29 +169,24 @@ document.querySelector('.js-payment-info')
 .innerHTML=paymentSummaryHTML
 
 
-document.querySelectorAll('.js-delete-link')
-.forEach((link)=>{
-    link.addEventListener('click',()=>{
-      const productId=link.dataset.productId
-      removeItem(productId);
-      const container = document.querySelector(
-        `.js-checkout-details-${productId}`
-        ) 
-        container.remove();
 
-    })
-   
-})
 export let newOrder =[]
 
-const placeOrder = document.querySelector('.js-order-button')
-placeOrder.addEventListener('click',cart.forEach((cartItem)=>{
-  newOrder.push(cartItem)
+ document.querySelector('.js-order-button')
+ .addEventListener('click',(cart)=>{
+  console.log("messi")
+ cart.forEach((cartItem)=>{
+ newOrder.push(cartItem)
+ 
+  console.log(newOrder)
+ })
 
-}))
+})
+     //document.querySelector('.js-cart-summary').innerHTML ="Cart IS Empty"
+ 
     
 
     
    
  
-      console.log(newOrder)
+      

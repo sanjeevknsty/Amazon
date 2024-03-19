@@ -1,6 +1,6 @@
 import { cart } from "../data/cart.js";
 import { products } from "../data/products.js";
-let headerSection;
+let headerSection =JSON.parse(localStorage.getItem('headerSection'));
 
 headerSection =`<div class="orderHeader-grid">
 <div class="left-section">
@@ -21,8 +21,9 @@ headerSection =`<div class="orderHeader-grid">
 </div>`
 
 
-let Summary ;
-let matchingItem
+let Summary =JSON.parse(localStorage.getItem('Summary')) ;
+
+let matchingItem;
 cart.forEach( cartItem  =>{ 
   const productId = cartItem.productId
     products.forEach( product  =>{
@@ -34,8 +35,7 @@ cart.forEach( cartItem  =>{
 
 Summary +=`  
 
-
-<div class="item-grid ">
+<div class="item-grid js-item-grid-${matchingItem.id}">
   <div class="product-image"> 
      <img class="css-product-image" src="${matchingItem.image}" alt="">
   </div>
@@ -48,6 +48,9 @@ Summary +=`
         <img class="image-BuyAgain" src="images/buy-again.png">
         <span>Buy it again</span> 
         </button>
+        <button class="js-delete-item " data-Product-id="${matchingItem.id}">
+          Delete
+         </button>
   </div>
   <div>
       <button class="css-TrackPackage"> Track Your Package</button>
@@ -55,8 +58,24 @@ Summary +=`
 </div>`
 
 })
-console.log(headerSection+Summary)
+
 
   document.querySelector('.js-Order-summary')
         .innerHTML=headerSection+Summary
 
+        document.querySelectorAll('.js-delete-item')
+        .forEach((link) => {
+          link.addEventListener('click',()=>{
+          const productId = link.dataset.productId
+          const container = document.querySelector(`.js-item-grid-${productId}`)
+          container.remove();
+          console.log(container)
+          })
+        }) 
+       
+
+
+localStorage.setItem('Summary',JSON.stringify(Summary))
+localStorage.setItem('headerSection',JSON.stringify(headerSection))
+
+  
